@@ -8,13 +8,13 @@ abstract class Pass
 {
     protected string $serialNumber;
     protected string $description;
-    protected string $organizationName;
-    protected string $passTypeIdentifier;
-    protected string $teamIdentifier;
-    protected string $backgroundColor;
-    protected string $foregroundColor;
-    protected string $labelColor;
-    protected string $logoText;
+    protected string $organizationName = '';
+    protected string $passTypeIdentifier = '';
+    protected string $teamIdentifier = '';
+    protected string $backgroundColor = '';
+    protected string $foregroundColor = '';
+    protected string $labelColor = '';
+    protected string $logoText = '';
     protected Structure $structure;
     protected array $images = [];
     protected ?Barcode $barcode = null;
@@ -163,19 +163,19 @@ abstract class Pass
             'style' => $this->getType(),
         ];
 
-        if ($this->backgroundColor) {
+        if (!empty($this->backgroundColor)) {
             $data['backgroundColor'] = $this->backgroundColor;
         }
 
-        if ($this->foregroundColor) {
+        if (!empty($this->foregroundColor)) {
             $data['foregroundColor'] = $this->foregroundColor;
         }
 
-        if ($this->labelColor) {
+        if (!empty($this->labelColor)) {
             $data['labelColor'] = $this->labelColor;
         }
 
-        if ($this->logoText) {
+        if (!empty($this->logoText)) {
             $data['logoText'] = $this->logoText;
         }
 
